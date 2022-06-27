@@ -6,8 +6,14 @@ int main()
 	
 	Time time;
 	std::cout << time << "\n";
-	time + 3800;
-	std::cout << time << "\n";;
+	time++;
+	std::cout << time << "\n";
+	time--;
+	std::cout << time << "\n";
+	++time;
+	std::cout << time << "\n";
+	--time;
+	std::cout << time << "\n";
 }
 
 

@@ -62,16 +62,87 @@ Time Time::operator-(unsigned short sec)
 		{
 			this->sec--;
 			sec--;
-			if (this->sec > 60) {
+			if (this->sec > 59) {
 				this->min--;
 				this->sec = 59;
 			}
-			if (this->min > 60) {
+			if (this->min > 59) {
 				this->hours--;
 				this->min = 59;
 			}
 			if (this->hours > 23) this->hours = 23;
 		}
+}
+
+Time& Time::operator++()
+{
+	sec++;
+
+	if (sec > 59) {
+		min++;
+		sec = 0;
+	}
+	if (min > 59) {
+	    hours++;
+		min = 0;
+	}
+	if (hours > 23) hours = 0;
+
+	return *this;
+}
+
+Time Time::operator++(int)
+{
+	Time clone = *this;
+
+	sec++;
+
+	if (sec > 59) {
+		min++;
+		sec = 0;
+	}
+	if (min > 59) {
+		hours++;
+		min = 0;
+	}
+	if (hours > 23) hours = 0;
+
+	return clone;
+}
+
+Time& Time::operator--()
+{
+	
+	sec--;
+	if (sec > 59) {
+		min--;
+		sec = 59;
+	}
+	if (min > 59) {
+		hours--;
+		min = 59;
+	}
+	if (hours > 23) hours = 23;
+
+	return *this;
+}
+
+Time Time::operator--(int)
+{
+	Time clone = *this;
+
+	sec--;
+	if (sec > 59) {
+		min--;
+		sec = 59;
+	}
+	if (min > 59) {
+		hours--;
+		min = 59;
+	}
+	if (hours > 23) hours = 23;
+
+	return clone;
 }
 
 bool Time::operator==(Time& time)

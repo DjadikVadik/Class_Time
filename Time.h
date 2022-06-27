@@ -23,6 +23,10 @@ public:
 
 	Time operator+(unsigned short sec);
 	Time operator-(unsigned short sec);
+	Time& operator++();
+	Time operator++(int);
+	Time& operator--();
+	Time operator--(int);
 
 	bool operator==(Time& time);
 	bool operator!=(Time& time);
